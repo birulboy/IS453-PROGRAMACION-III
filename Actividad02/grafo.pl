@@ -15,7 +15,7 @@ conexion_directa(regina,winnipeg,4).
 
 existe_conexion(X,Y) :- conexion_directa(X,Y,_).
 existe_aristas(X):- conexion_directa(X,_,_).
-
+posible_viajar(X,Y) :- conexion_directa(X,Y,_) ; ( posible_viajar(X,Z), posible_viajar(Z,Y)).
 
 
 conexion_regina(X,Z) :- conexion_directa(regina,X,Z).
