@@ -15,8 +15,8 @@ conexion_directa(regina,winnipeg,4).
 
 existe_conexion(X,Y) :- conexion_directa(X,Y,_).
 existe_aristas(X):- conexion_directa(X,_,_).
-posible_viajar(X,Y) :- conexion_directa(X,Y,_).
-posible_viajar(X,Y) :- conexion_directa(X,Y,_) ; (posible_viajar(X,Z),posible_viajar(Z,Y),X\==Z,Z\==Y).
+posible_viajar(X,Z):- conexion_directa(X,Z,_).
+posible_viajar(X,Z):- conexion_directa(X,Y,_), posible_viajar(Y,Z).
 
 conexion_regina(X,Z) :- conexion_directa(regina,X,Z).
 costo_viaje(X,Z,C) :- conexion_directa(X,Y,Costo1) , conexion_directa(Y,Z,Costo2), C is Costo1 + Costo2.
