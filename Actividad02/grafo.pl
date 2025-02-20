@@ -19,3 +19,4 @@ existe_aristas(X):- conexion_directa(X,_,_).
 
 
 conexion_regina(X,Z) :- conexion_directa(regina,X,Z).
+costo_viaje(X,Z,C) :- conexion_directa(X,Y,Costo1) , conexion_directa(Y,Z,Costo2), C is Costo1 + Costo2.
