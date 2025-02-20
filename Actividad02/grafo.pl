@@ -11,3 +11,8 @@ conexion_directa(saskatoon,winnipeg,20).
 
 conexion_directa(regina,saskatoon,7).
 conexion_directa(regina,winnipeg,4).
+
+
+existe_conexion(X,Y) :- conexion_directa(X,Y,Z).
+existe_aristas(X):- conexion_directa(X,Y,Z).
+
