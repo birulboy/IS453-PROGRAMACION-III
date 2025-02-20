@@ -16,3 +16,6 @@ conexion_directa(regina,winnipeg,4).
 existe_conexion(X,Y) :- conexion_directa(X,Y,Z).
 existe_aristas(X):- conexion_directa(X,Y,Z).
 
+
+
+conexion_regina(X,Z) :- conexion_directa(regina,X,Z).
