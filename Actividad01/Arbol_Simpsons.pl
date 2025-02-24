@@ -1,4 +1,4 @@
-es_hombre(abraham). es_hombre(herbert). es_hombre(homero). es_hombre(bart). es_hombre_(clancy).
+es_hombre(abraham). es_hombre(herbert). es_hombre(homero). es_hombre(bart). es_hombre(clancy).
 es_mujer(mona). es_mujer(marge). es_mujer(lisa). es_mujer(maggie). es_mujer(jacqueline). es_mujer(patty). es_mujer(selma). es_mujer(ling).
 
 es_padre(homero, bart).
