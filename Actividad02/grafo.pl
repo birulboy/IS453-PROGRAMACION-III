@@ -17,6 +17,7 @@ existe_conexion(X,Y) :- conexion_directa(X,Y,_).
 existe_aristas(X):- conexion_directa(X,_,_).
 posible_viajar(X,Z):- conexion_directa(X,Z,_).
 posible_viajar(X,Z):- conexion_directa(X,Y,_), posible_viajar(Y,Z).
-
 conexion_(X,Y,Z) :- conexion_directa(X,Y,Z).
-costo_viaje(X,Z,C) :- conexion_directa(X,Y,Costo1) , conexion_directa(Y,Z,Costo2), C is Costo1 + Costo2.
+
+costo_viaje(X,Z,C) :- conexion_directa(X,Z,C).
+costo_viaje(X,Z,C) :- conexion_directa(X,Y,C1), costo_viaje(Y,Z,C2), C is C1 + C2.
