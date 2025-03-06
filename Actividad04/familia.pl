@@ -32,7 +32,7 @@ es_madre(X):- mujer(X), progenitor(X,_).
 
 
 
-%hermana_de(X,Y)
+hermana_de(X,Y):- mujer(X), mujer(Y), progenitor(_,X), progenitor(_,Y).
 
 
 
