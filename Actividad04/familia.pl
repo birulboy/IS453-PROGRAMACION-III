@@ -17,7 +17,7 @@ mujer(patricia).
 
 dif(X,Y) :- X\=Y.
 
-%es_madre(X)
+es_madre(X):- mujer(X), progenitor(X,_).
 
 
 
