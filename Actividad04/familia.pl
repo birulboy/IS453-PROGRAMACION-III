@@ -32,7 +32,7 @@ es_madre(X):- mujer(X), progenitor(X,_).
 
 
 
-hermana_de(X,Y):- mujer(X), dif(X,Y), progenitor(_,X), progenitor(_,Y). 
+hermana_de(X,Y):- mujer(X), dif(X,Y), progenitor(Z,X), progenitor(Z,Y). 
 
 
 
@@ -49,7 +49,7 @@ hermana_de(X,Y):- mujer(X), dif(X,Y), progenitor(_,X), progenitor(_,Y).
 
 
 
-hermanos(X,Y):- dif(X,Y), progenitor(_,X), progenitor(_,Y). 
+hermanos(X,Y):- dif(X,Y), progenitor(Z,X), progenitor(Z,Y). 
 
 
 
