@@ -48,7 +48,9 @@ abuela_de(X,Y):- ( progenitor(Z,Y) , progenitor(X,Z)) , mujer(X) , !.
 
 
 %hermanos(X,Y) 
-hermanos(X,Y):- dif(X,Y), progenitor(Z,X), progenitor(Z,Y). 
+hermanos(X,Y):-
+    progenitor(Z,X), progenitor(Z,Y),
+    dif(X,Y).
 
 
 %tia(X,Y)
