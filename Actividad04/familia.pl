@@ -15,7 +15,7 @@ mujer(isabel).
 mujer(ana).
 mujer(patricia).
 
-dif(X,Y) :- X\=Y.
+dif(X,Y) :- X\==Y.
 
 %es_madre(X)
 es_madre(X):- mujer(X), progenitor(X,_).
@@ -33,7 +33,7 @@ es_hijo(X) :- progenitor(_,X), !.
 
 
 %hermana_de(X,Y)
-hermana_de(X,Y):- mujer(X), dif(X,Y) , progenitor(Z,X), progenitor(Z,Y), !. 
+hermana_de(X,Y):- mujer(X) , progenitor(Z,X), progenitor(Z,Y), dif(X,Y). 
 
 
 
@@ -54,4 +54,4 @@ hermanos(X,Y):-
 
 
 %tia(X,Y)
-tia(X,Y) :- progenitor(Z,Y) , hermana_de(X,Z) , !.
+tia(X,Y) :- progenitor(Z,Y) , hermana_de(X,Z).
