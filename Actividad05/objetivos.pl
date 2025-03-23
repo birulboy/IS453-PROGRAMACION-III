@@ -1,1 +1,0 @@
-es_padre(X,Y).
