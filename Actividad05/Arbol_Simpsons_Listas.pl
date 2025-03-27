@@ -1,8 +1,8 @@
 es_hombre(X):- 
-    member(X, [abraham,herbert,homero,bart,clancy]), !.
+    member(X, [abraham,herbert,homero,bart,clancy]).
 
 es_mujer(X):- 
-    member(X,[mona,marge,lisa,maggie,jacqueline,patty,selma,ling]), !.
+    member(X,[mona,marge,lisa,maggie,jacqueline,patty,selma,ling]).
 
 es_padre(X,Y):- 
     member((X,Y),
