@@ -34,3 +34,22 @@ es_madre(nombre(mona), nombre(homero)).
 es_madre(nombre(jacqueline), nombre(marge)).
 es_madre(nombre(jacqueline), nombre(patty)).
 es_madre(nombre(jacqueline), nombre(selma)).
+
+dif(A, B):- A \== B.
+
+% Relación de abuelos
+es_abuelo(nombre(X), nombre(Z)) :- es_padre(nombre(X), nombre(Y)), (es_padre(nombre(Y), nombre(Z)) ; es_madre(nombre(Y), nombre(Z))).
+es_abuela(nombre(X), nombre(Z)) :- es_madre(nombre(X), nombre(Y)), (es_padre(nombre(Y), nombre(Z)) ; es_madre(nombre(Y), nombre(Z))).
+
+% Relación de hermanos
+es_hermano(nombre(X), nombre(Y)) :- 
+    es_hombre(nombre(X)),
+    X @< Y,  % Impide que Prolog repita la relación en orden inverso
+    (es_padre(nombre(Z), nombre(X)), es_padre(nombre(Z), nombre(Y)));
+    (es_madre(nombre(Z), nombre(X)), es_madre(nombre(Z), nombre(Y))), es_hombre(nombre(X)), dif(X,Y).
+
+es_hermana(nombre(X), nombre(Y)) :- 
+    es_mujer(nombre(X)),
+    X @< Y,  % Impide que Prolog repita la relación en orden inverso
+    (es_padre(nombre(Z), nombre(X)), es_padre(nombre(Z), nombre(Y)));
+    (es_madre(nombre(Z), nombre(X)), es_madre(nombre(Z), nombre(Y))), es_mujer(nombre(X)), dif(X,Y).
