@@ -36,3 +36,25 @@ es_hermana(X, Y) :-
     X @< Y,  % Impide que Prolog repita la relación en orden inverso
     (es_padre(Z, X), es_padre(Z, Y));
     (es_madre(Z, X), es_madre(Z, Y)), es_mujer(X), dif(X,Y).
+
+    % Relación de tíos y tías
+es_tio(X, Z) :-  
+    es_hombre(X), 
+    es_hermano(X, Y), 
+    (es_padre(Y, Z) ; es_madre(Y, Z)).
+
+es_tia(X, Z) :-  
+    es_mujer(X), 
+    es_hermana(X, Y), 
+    (es_padre(Y, Z) ; es_madre(Y, Z)).
+
+% Relación de primos y primas
+es_primo(X, Z) :- 
+    (es_tio(Y, Z) ; es_tia(Y, Z)),  
+    (es_madre(Y, X) ; es_padre(Y, X)), 
+    es_hombre(X).
+
+es_prima(X, Z) :- 
+    (es_tio(Y, Z) ; es_tia(Y, Z)),  
+    (es_madre(Y, X) ; es_padre(Y, X)), 
+    es_mujer(X).
